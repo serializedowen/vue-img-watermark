@@ -1,8 +1,8 @@
 {
   "name": "@serializedowen/vue-img-watermark",
-  "version": "0.0.1",
-  "description": "add watermark for your image with only directive",
-  "main": "lib/index.js",
+  "version": "0.2.0",
+  "description": "add watermark for your image with only a single directive",
+  "main": "lib/vueImageWatermark.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "demo": "webpack-dev-server --config webpack.example.config.js",
@@ -12,9 +12,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/serializedowen/vue-img-watermark.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   },
   "typings": "types/index.d.ts",
   "keywords": [
@@ -27,7 +24,9 @@
     "url": "https://github.com/serializedowen/vue-img-watermark/issues"
   },
   "homepage": "https://github.com/serializedowen/vue-img-watermark#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@serializedowen/vue-img-watermark": "^0.1.0"
+  },
   "peerDependencies": {
     "vue": "^2.6.11"
   },

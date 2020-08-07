@@ -1,5 +1,6 @@
 import Vue from "vue";
 import plugin, { setScopedConfig } from "../src/index";
+// import plugin, { setScopedConfig } from "@serializedowen/vue-img-watermark";
 import img from "./example.jpg";
 import img2 from "./ex2.jpg";
 Vue.use(plugin);

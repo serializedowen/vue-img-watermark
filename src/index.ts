@@ -5,6 +5,8 @@ import selectStrategy, { registerCustomStrategy } from "./selectStrategy";
 
 let canvas: HTMLCanvasElement;
 
+export { registerCustomStrategy };
+
 export type displayMode =
   | "bottomleft"
   | "bottomright"
@@ -110,14 +112,7 @@ const vueImgWatermark = {
           const { width, height } = element;
           const ctx = getCanvas().getContext("2d");
 
-          const {
-            textBaseline,
-            fillStyle,
-            content,
-            rotate,
-            font,
-            mode,
-          } = options;
+          const { textBaseline, fillStyle, font, mode } = options;
 
           setTimeout(() => {
             getCanvas().width = width;
