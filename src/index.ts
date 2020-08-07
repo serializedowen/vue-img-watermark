@@ -1,9 +1,16 @@
 import { VueConstructor } from "vue";
 
 let canvas: HTMLCanvasElement;
-let options: optionConfig;
+
+export type displayMode =
+  | "bottomleft"
+  | "bottomright"
+  | "topleft"
+  | "topright"
+  | "tilted";
 
 export type optionConfig = {
+  mode: displayMode;
   textAlign: CanvasTextAlign;
   textBaseline: CanvasTextBaseline;
   fillStyle: string | CanvasGradient | CanvasPattern;
@@ -13,7 +20,8 @@ export type optionConfig = {
   zIndex: number;
 };
 
-const defaultOptions: optionConfig = {
+const defaultOptions: optionConfig = Object.freeze({
+  mode: "tilted",
   textAlign: "center",
   textBaseline: "middle",
   font: "15px Arial",
@@ -21,6 +29,22 @@ const defaultOptions: optionConfig = {
   content: "请勿外传",
   rotate: 30,
   zIndex: 1000,
+});
+
+const globalOptions: optionConfig = { ...defaultOptions };
+
+// const scopedConfigMap: {
+//   [k in number]: optionConfig;
+// } = {};
+
+const scopedConfigMap: WeakMap<Vue, optionConfig> = new WeakMap();
+
+export const setScopedConfig = (opts: Partial<optionConfig>, vm: Vue) => {
+  if (!scopedConfigMap.has(vm)) {
+    scopedConfigMap.set(vm, { ...defaultOptions, ...opts });
+  } else {
+    scopedConfigMap.set(vm, { ...scopedConfigMap.get(vm), ...opts });
+  }
 };
 
 const getCanvas = () => {
@@ -47,8 +71,13 @@ const vueImgWatermark = {
     Vue.directive("watermark", {
       inserted(element: HTMLImageElement, binding, VNode, oldVNode) {
         let marked = false;
+        let options: optionConfig;
 
-        console.log(VNode);
+        if (scopedConfigMap.has(VNode.context)) {
+          options = scopedConfigMap.get(VNode.context);
+        } else {
+          options = globalOptions;
+        }
 
         element.addEventListener("load", () => {
           if (!marked) {
@@ -67,8 +96,10 @@ const vueImgWatermark = {
               content,
               rotate,
               font,
-            } = defaultOptions;
+              mode,
+            } = options;
 
+            console.log(binding);
             setTimeout(() => {
               ctx.drawImage(element, 0, 0, width, height, 0, 0, width, height);
               ctx.textAlign = textAlign;
@@ -76,6 +107,13 @@ const vueImgWatermark = {
 
               ctx.font = font;
               ctx.fillStyle = fillStyle;
+
+              switch (mode) {
+                case "bottomleft": {
+                }
+                case "bottomright": {
+                }
+              }
 
               ctx.rotate((Math.PI / 180) * rotate);
               ctx.fillText(content, width / 2, height / 2);
