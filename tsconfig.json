@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "declarationDir": "./types",
-    "declaration": true
+    "declaration": true,
+    "outDir": "./lib"
     // "emitDeclarationOnly": true
   }
 }

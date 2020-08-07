@@ -1,11 +1,13 @@
 {
-  "name": "vue-img-watermark",
+  "name": "@serializedowen/vue-img-watermark",
   "version": "0.0.1",
-  "description": "add watermark for your image",
-  "main": "index.js",
+  "description": "add watermark for your image with only directive",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "demo": "webpack-dev-server --config webpack.example.config.js"
+    "demo": "webpack-dev-server --config webpack.example.config.js",
+    "prepublish": "npm run build",
+    "build": "rimraf lib/ && rimraf types/ && webpack"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,7 @@
     "babel-plugin-transform-vue-jsx": "^3.7.0",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "rimraf": "^3.0.2",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "vue": "^2.6.11",
