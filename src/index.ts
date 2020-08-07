@@ -130,11 +130,22 @@ const vueImgWatermark = {
             ctx.fillStyle = fillStyle;
 
             selectStrategy(mode)(ctx, options);
-            element.src = ctx.canvas.toDataURL();
+
+            const url = ctx.canvas.toDataURL();
+
+            //@ts-ignore
+            VNode.__url ? VNode.__url.push(url) : (VNode.__url = [url]);
+
+            element.src = url;
           }, 200);
         }
 
         element.addEventListener("load", loader);
+      },
+
+      unbind(el, binding, VNode) {
+        //@ts-ignore
+        VNode.__url && VNode.__url.map((url) => URL.revokeObjectURL(url));
       },
     });
   },
