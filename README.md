@@ -1,7 +1,18 @@
 # vue-img-watermark :maple_leaf:
 
 
+## Installation
+```sh
+npm install --save @serializedowen/vue-img-watermark
+```
 
+```
+yarn add @serializedowen/vue-img-watermark
+```
+
+
+
+## Usage
 ```js
 import plugin from '@serializedowen/vue-img-watermark'
 
