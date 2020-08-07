@@ -36,6 +36,7 @@
     "babel-plugin-transform-vue-jsx": "^3.7.0",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "vue": "^2.6.11",
     "webpack": "^4.44.1",
