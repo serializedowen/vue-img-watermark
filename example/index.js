@@ -4,7 +4,6 @@ import img from "./example.jpg";
 import img2 from "./ex2.jpg";
 Vue.use(plugin);
 
-console.log(img);
 const ele = new Vue({
   components: {
     seperate: {
