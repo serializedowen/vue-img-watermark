@@ -69,17 +69,19 @@ const vueImgWatermark = {
               font,
             } = defaultOptions;
 
-            ctx.drawImage(element, 0, 0, width, height, 0, 0, width, height);
-            ctx.textAlign = textAlign;
-            ctx.textBaseline = textBaseline;
+            setTimeout(() => {
+              ctx.drawImage(element, 0, 0, width, height, 0, 0, width, height);
+              ctx.textAlign = textAlign;
+              ctx.textBaseline = textBaseline;
 
-            ctx.font = font;
-            ctx.fillStyle = fillStyle;
+              ctx.font = font;
+              ctx.fillStyle = fillStyle;
 
-            ctx.rotate((Math.PI / 180) * rotate);
-            ctx.fillText(content, width / 2, height / 2);
+              ctx.rotate((Math.PI / 180) * rotate);
+              ctx.fillText(content, width / 2, height / 2);
 
-            element.src = ctx.canvas.toDataURL();
+              element.src = ctx.canvas.toDataURL();
+            }, 500);
           }
         });
       },
