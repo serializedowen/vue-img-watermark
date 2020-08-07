@@ -1,0 +1,13 @@
+{
+  // "presets": ["@vue/babel-preset-jsx"],
+  "plugins": [
+    "transform-vue-jsx"
+    // [
+    //   "@babel/plugin-transform-react-jsx",
+    //   {
+    //     "pragma": "h",
+    //     "pragmaFrag": "Fragment"
+    //   }
+    // ]
+  ]
+}

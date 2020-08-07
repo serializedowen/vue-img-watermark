@@ -1,0 +1,46 @@
+{
+  "name": "vue-img-watermark",
+  "version": "0.0.1",
+  "description": "add watermark for your image",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "demo": "webpack-dev-server --config webpack.example.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serializedowen/vue-img-watermark.git"
+  },
+  "typings": "types/index.d.ts",
+  "keywords": [
+    "watermark",
+    "vue"
+  ],
+  "author": "@serializedowen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/serializedowen/vue-img-watermark/issues"
+  },
+  "homepage": "https://github.com/serializedowen/vue-img-watermark#readme",
+  "dependencies": {},
+  "peerDependencies": {
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-transform-react-jsx": "^7.10.4",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "typescript": "^3.9.7",
+    "url-loader": "^4.1.0",
+    "vue": "^2.6.11",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
