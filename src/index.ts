@@ -62,6 +62,9 @@ let globalOptions: OptionConfig = { ...defaultOptions };
 const scopedConfigMap: WeakMap<Vue, OptionConfig> = new WeakMap();
 
 export const setScopedConfig = (opts: Partial<OptionConfig>, vm: Vue) => {
+  //@ts-ignore
+  if (!vm._isVue) throw new Error("target isn't not a valid vue instance.");
+
   if (!scopedConfigMap.has(vm)) {
     scopedConfigMap.set(vm, { ...defaultOptions, ...opts });
   } else {
@@ -140,7 +143,7 @@ const vueImgWatermark = {
 
       unbind(el, binding, VNode) {
         //@ts-ignore
-        VNode.__url && VNode.__url.map((url) => URL.revokeObjectURL(url));
+        VNode.__url && VNode.__url.map(URL.revokeObjectURL);
       },
     });
   },
