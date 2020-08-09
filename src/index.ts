@@ -111,33 +111,31 @@ const vueImgWatermark = {
 
         function loader() {
           element.removeEventListener("load", loader);
-          element.setAttribute("crossorigin", "anonymous");
+
           const { width, height } = element;
           const ctx = getCanvas().getContext("2d");
 
           const { textBaseline, fillStyle, font, mode } = options;
 
-          setTimeout(() => {
-            getCanvas().width = width;
-            getCanvas().height = height;
-            ctx.clearRect(0, 0, width, height);
-            ctx.drawImage(element, 0, 0);
+          getCanvas().width = width;
+          getCanvas().height = height;
+          ctx.clearRect(0, 0, width, height);
+          ctx.drawImage(element, 0, 0);
 
-            ctx.textBaseline = textBaseline;
-            ctx.font = font;
-            ctx.fillStyle = fillStyle;
+          ctx.textBaseline = textBaseline;
+          ctx.font = font;
+          ctx.fillStyle = fillStyle;
 
-            selectStrategy(mode)(ctx, options);
+          selectStrategy(mode)(ctx, options);
 
-            const url = ctx.canvas.toDataURL();
+          const url = ctx.canvas.toDataURL();
 
-            //@ts-ignore
-            VNode.__url ? VNode.__url.push(url) : (VNode.__url = [url]);
+          //@ts-ignore
+          VNode.__url ? VNode.__url.push(url) : (VNode.__url = [url]);
 
-            element.src = url;
-          }, 200);
+          element.src = url;
         }
-
+        element.setAttribute("crossorigin", "anonymous");
         element.addEventListener("load", loader);
       },
 
