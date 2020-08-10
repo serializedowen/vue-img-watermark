@@ -222,7 +222,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
             value: true
           }],
           attrs: {
-            src: "/" + _ex2_jpg__WEBPACK_IMPORTED_MODULE_3__["default"]
+            src: _ex2_jpg__WEBPACK_IMPORTED_MODULE_3__["default"]
           }
         })]), h("div", {
           "class": "image-container"
@@ -232,7 +232,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
             value: true
           }],
           attrs: {
-            src: "/" + _example_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]
+            src: _example_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]
           }
         })])]);
       }
@@ -249,7 +249,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
         value: true
       }],
       attrs: {
-        src: "/" + _example_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]
+        src: _example_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]
       }
     })]), h("h2", ["Use individual config"]), h("div", {
       "class": "image-container"
@@ -261,7 +261,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
         }
       }],
       attrs: {
-        src: "/" + _example_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]
+        src: _example_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]
       }
     })]), h("div", {
       "class": "image-container"
@@ -274,7 +274,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
         }
       }],
       attrs: {
-        src: "/" + _example_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]
+        src: _example_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]
       }
     })]), h("div", {
       "class": "image-container"
@@ -287,7 +287,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
         }
       }],
       attrs: {
-        src: "/" + _example_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]
+        src: _example_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]
       }
     })]), h("div", {
       "class": "image-container"
@@ -300,7 +300,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
         }
       }],
       attrs: {
-        src: "/" + _example_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]
+        src: _example_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]
       }
     })]), h("div", {
       "class": "image-container"
@@ -313,7 +313,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
         }
       }],
       attrs: {
-        src: "/" + _example_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]
+        src: _example_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]
       }
     })])]);
   }
