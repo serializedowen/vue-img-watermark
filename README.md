@@ -1,5 +1,7 @@
 # vue-img-watermark :maple_leaf:
 
+## Demo 
+ http://serializedowen.github.io/vue-img-watermark/
 
 ## Installation
 ```sh
@@ -30,4 +32,4 @@ Vue.use(plugin)
 
 
 ## Known Issues:
-- [ ] currently `canvas.drawImage()` has to be wrapped in a `setTimeout()` call to work, reason to be identified.
+- [x] currently `canvas.drawImage()` has to be wrapped in a `setTimeout()` call to work, reason to be identified.
