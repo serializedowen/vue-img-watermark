@@ -57,10 +57,10 @@ new Vue({
           <div>
             <h2>scoped config</h2>
             <div class="image-container">
-              <img v-watermark src={"/" + img2}></img>
+              <img v-watermark src={img2}></img>
             </div>
             <div class="image-container">
-              <img v-watermark src={"/" + img}></img>
+              <img v-watermark src={img}></img>
             </div>
           </div>
         );
@@ -74,41 +74,38 @@ new Vue({
 
         <h2>Use global config</h2>
         <div class="image-container">
-          <img v-watermark src={"/" + img}></img>
+          <img v-watermark src={img}></img>
         </div>
 
         <h2>Use individual config</h2>
         <div class="image-container">
-          <img
-            v-watermark={{ content: "@serializedowen" }}
-            src={"/" + img}
-          ></img>
+          <img v-watermark={{ content: "@serializedowen" }} src={img}></img>
         </div>
         <div class="image-container">
           <img
             v-watermark={{ content: "@serializedowen", mode: "topleft" }}
-            src={"/" + img}
+            src={img}
           ></img>
         </div>
 
         <div class="image-container">
           <img
             v-watermark={{ content: "@serializedowen", mode: "topright" }}
-            src={"/" + img}
+            src={img}
           ></img>
         </div>
 
         <div class="image-container">
           <img
             v-watermark={{ content: "@serializedowen", mode: "bottomleft" }}
-            src={"/" + img}
+            src={img}
           ></img>
         </div>
 
         <div class="image-container">
           <img
             v-watermark={{ content: "@serializedowen", mode: "bottomright" }}
-            src={"/" + img}
+            src={img}
           ></img>
         </div>
       </div>
