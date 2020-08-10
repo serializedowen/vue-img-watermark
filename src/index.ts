@@ -3,9 +3,14 @@ import { DirectiveBinding } from "vue/types/options";
 import { VNode } from "vue/types/umd";
 import selectStrategy, { registerCustomStrategy } from "./selectStrategy";
 
-let canvas: HTMLCanvasElement;
-
-export { registerCustomStrategy };
+export type WatermarkOptionConfig = {
+  mode: displayMode;
+  textBaseline: CanvasTextBaseline;
+  fillStyle: string | CanvasGradient | CanvasPattern;
+  content: string;
+  font: string;
+  rotate: number;
+};
 
 export type displayMode =
   | "bottomleft"
@@ -14,6 +19,10 @@ export type displayMode =
   | "topright"
   | "center"
   | "fill";
+
+let canvas: HTMLCanvasElement;
+
+export { registerCustomStrategy };
 
 registerCustomStrategy("fill", (ctx, options) => {
   ctx.textAlign = "center";
@@ -40,16 +49,7 @@ registerCustomStrategy("fill", (ctx, options) => {
   }
 });
 
-export type OptionConfig = {
-  mode: displayMode;
-  textBaseline: CanvasTextBaseline;
-  fillStyle: string | CanvasGradient | CanvasPattern;
-  content: string;
-  font: string;
-  rotate: number;
-};
-
-const defaultOptions: OptionConfig = Object.freeze({
+const defaultOptions: WatermarkOptionConfig = Object.freeze({
   mode: "fill",
   textBaseline: "middle",
   font: "15px Arial",
@@ -58,10 +58,13 @@ const defaultOptions: OptionConfig = Object.freeze({
   rotate: 30,
 });
 
-let globalOptions: OptionConfig = { ...defaultOptions };
-const scopedConfigMap: WeakMap<Vue, OptionConfig> = new WeakMap();
+let globalOptions: WatermarkOptionConfig = { ...defaultOptions };
+const scopedConfigMap: WeakMap<Vue, WatermarkOptionConfig> = new WeakMap();
 
-export const setScopedConfig = (opts: Partial<OptionConfig>, vm: Vue) => {
+export const setScopedConfig = (
+  opts: Partial<WatermarkOptionConfig>,
+  vm: Vue
+) => {
   //@ts-ignore
   if (!vm._isVue) throw new Error("target isn't not a valid vue instance.");
 
@@ -72,7 +75,7 @@ export const setScopedConfig = (opts: Partial<OptionConfig>, vm: Vue) => {
   }
 };
 
-export const setGlobalConfig = (opts: Partial<OptionConfig>) => {
+export const setGlobalConfig = (opts: Partial<WatermarkOptionConfig>) => {
   globalOptions = { ...globalOptions, ...opts };
 };
 
@@ -96,9 +99,9 @@ const vueImgWatermark = {
         VNode: VNode
         // oldVNode: VNode
       ) {
-        let options: OptionConfig;
+        let options: WatermarkOptionConfig;
 
-        const bindingOptions: Partial<OptionConfig> = binding.value;
+        const bindingOptions: Partial<WatermarkOptionConfig> = binding.value;
 
         if (scopedConfigMap.has(VNode.context)) {
           options = {
@@ -134,6 +137,8 @@ const vueImgWatermark = {
           VNode.__url ? VNode.__url.push(url) : (VNode.__url = [url]);
 
           element.src = url;
+
+          VNode.context.$emit("img:watermarked", element, options);
         }
         element.setAttribute("crossorigin", "anonymous");
         element.addEventListener("load", loader);

@@ -1,6 +1,9 @@
-import { OptionConfig } from "..";
+import { WatermarkOptionConfig } from "..";
 
-export default (ctx: CanvasRenderingContext2D, options: OptionConfig) => {
+export default (
+  ctx: CanvasRenderingContext2D,
+  options: WatermarkOptionConfig
+) => {
   ctx.textAlign = "right";
   ctx.fillText(options.content, ctx.canvas.width - 20, ctx.canvas.height - 20);
 };
