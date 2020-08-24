@@ -7,6 +7,7 @@
 .image-container {
   overflow: hidden;
   transition: 0.5s;
+  display: inline-block;
 }
 
 .image-container:hover img {
