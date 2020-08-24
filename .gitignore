@@ -2,3 +2,4 @@ node_modules/
 types/
 lib/
 dist/
+yarn*
