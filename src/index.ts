@@ -114,7 +114,6 @@ const vueImgWatermark = {
 
         function loader() {
           element.removeEventListener("load", loader);
-
           const { width, height } = element;
           const ctx = getCanvas().getContext("2d");
 
@@ -122,8 +121,9 @@ const vueImgWatermark = {
 
           getCanvas().width = width;
           getCanvas().height = height;
+
           ctx.clearRect(0, 0, width, height);
-          ctx.drawImage(element, 0, 0);
+          ctx.drawImage(element, 0, 0, width, height);
 
           ctx.textBaseline = textBaseline;
           ctx.font = font;
@@ -139,6 +139,10 @@ const vueImgWatermark = {
           element.src = url;
 
           VNode.context.$emit("img:watermarked", element, options);
+          element.addEventListener("load", function temp() {
+            element.removeEventListener("load", temp);
+            element.addEventListener("load", loader);
+          });
         }
         element.setAttribute("crossorigin", "anonymous");
         element.addEventListener("load", loader);
