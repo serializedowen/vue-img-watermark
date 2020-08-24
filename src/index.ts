@@ -25,11 +25,18 @@ let canvas: HTMLCanvasElement;
 export { registerCustomStrategy };
 
 registerCustomStrategy("fill", (ctx, options) => {
+  const getRadian = (degree: number) => (degree * Math.PI) / 180;
   ctx.textAlign = "center";
   const width = ctx.canvas.width;
   const height = ctx.canvas.height;
-  ctx.translate(width / 2, -height / 2);
+  const padding = 100;
+  ctx.translate(
+    (width / 2) * Math.tan(getRadian(options.rotate)),
+    (-height / 2) * Math.tan(getRadian(options.rotate))
+  );
+
   ctx.rotate((options.rotate * Math.PI) / 180);
+
   let x = 20;
   let y = 20;
   let addingX = true;
@@ -41,9 +48,9 @@ registerCustomStrategy("fill", (ctx, options) => {
       addingX = false;
     }
 
-    if (addingX) x += 80;
+    if (addingX) x += padding;
     else {
-      y += 80;
+      y += padding;
       addingX = true;
     }
   }
@@ -55,7 +62,7 @@ const defaultOptions: WatermarkOptionConfig = Object.freeze({
   font: "15px Arial",
   fillStyle: "rgba(184, 184, 184, 0.8)",
   content: "请勿外传",
-  rotate: 30,
+  rotate: 45,
 });
 
 let globalOptions: WatermarkOptionConfig = { ...defaultOptions };
