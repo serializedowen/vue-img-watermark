@@ -1,9 +1,13 @@
 import getRandomPic from "./getRandomPic";
 
-const renderImage = (h, config = {}) => {
+const renderImage = (h, url, config = {}) => {
   return (
     <div class="image-container">
-      <img src={getRandomPic()} v-watermark={config}></img>
+      <img
+        src={url}
+        v-watermark={config}
+        style={"width: 500px; height : 360px"}
+      ></img>
     </div>
   );
 };
