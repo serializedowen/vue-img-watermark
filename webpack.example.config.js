@@ -20,15 +20,15 @@ module.exports = {
     // minimizer: [new CssMinimizerPlugin()],
   },
   output: {
-    filename: "[id][hash].js",
+    filename: "[id]-[hash].js",
   },
   mode: "development",
   plugins: [
     new HtmlWebpackPlugin({ template: "example/index.html" }),
     new BundleAnalyzerPlugin(),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css",
+      filename: "[hash].css",
+      chunkFilename: "[id]-[hash].css",
       ignoreOrder: false,
     }),
   ],

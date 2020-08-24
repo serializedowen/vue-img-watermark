@@ -1,6 +1,6 @@
 {
   "name": "@serializedowen/vue-img-watermark",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "add watermark for your image with only a single directive",
   "main": "lib/vueImageWatermark.js",
   "scripts": {
