@@ -31,6 +31,10 @@
   transform: translate(8px, 0px) scale(1.02) !important;
 }
 
+.flip-move {
+  transition: transform 1s;
+}
+
 /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
