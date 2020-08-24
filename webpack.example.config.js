@@ -1,16 +1,38 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+
 module.exports = {
+  optimization: {
+    minimize: true,
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          name: "commons",
+          chunks: "initial",
+          minChunks: 2,
+        },
+      },
+    },
+    // minimizer: [new CssMinimizerPlugin()],
+  },
+  output: {
+    filename: "[id][hash].js",
+  },
   mode: "development",
   plugins: [
     new HtmlWebpackPlugin({ template: "example/index.html" }),
+    new BundleAnalyzerPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css",
       ignoreOrder: false,
     }),
   ],
+
   devtool: "sourcemap",
   module: {
     rules: [
@@ -20,13 +42,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: [
-          // {
-          //   loader: MiniCssExtractPlugin.loader,
-          // },
-          "style-loader",
-          "css-loader",
-        ],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.js$/,
