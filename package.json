@@ -1,6 +1,6 @@
 {
   "name": "@serializedowen/vue-img-watermark",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "add watermark for your image with only a single directive",
   "main": "lib/vueImageWatermark.js",
   "scripts": {
@@ -45,6 +45,7 @@
     "file-loader": "^6.0.0",
     "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^4.3.0",
+    "lodash": "^4.17.20",
     "mini-css-extract-plugin": "^0.9.0",
     "nuxt": "^2.14.3",
     "prettier": "^2.0.5",
@@ -53,6 +54,7 @@
     "style-loader": "^1.2.1",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
+    "uuid": "^8.3.0",
     "vue": "^2.6.11",
     "webpack": "^4.44.1",
     "webpack-bundle-analyzer": "^3.8.0",
