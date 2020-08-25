@@ -30,3 +30,7 @@
 .image-container:hover pre {
   transform: translate(8px, 0px) scale(1.02) !important;
 }
+
+.flip-move {
+  transition: transform 1s;
+}

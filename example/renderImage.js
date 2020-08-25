@@ -1,8 +1,8 @@
 import getRandomPic from "./getRandomPic";
 
-const renderImage = (h, url, config = {}) => {
+const renderImage = (h, url, config = {}, index) => {
   return (
-    <div class="image-container">
+    <div key={index} class="image-container">
       <img
         src={url}
         v-watermark={config}

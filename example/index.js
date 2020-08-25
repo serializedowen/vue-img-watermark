@@ -6,8 +6,9 @@ import renderImage from "./renderImage";
 import getRandomConfig from "./getRandomConfig";
 import "./index.css";
 import "prismjs/themes/prism.css";
+import { shuffle } from "lodash";
 import getRandomPic from "./getRandomPic";
-
+import { v4 as uuid } from "uuid";
 Vue.use(plugin);
 
 setGlobalConfig({ fillStyle: "white" });
@@ -19,7 +20,7 @@ new Vue({
 
   methods: {
     addPicture() {
-      this.urls.push(getRandomPic());
+      this.randoms.push({ url: getRandomPic(), uid: uuid() });
     },
   },
   components: {
@@ -61,11 +62,26 @@ new Vue({
         getRandomPic(),
         getRandomPic(),
       ],
+      randoms: [{ url: getRandomPic(), uid: uuid() }],
     };
   },
   render(h) {
     return (
       <div>
+        <h2>
+          Use random config <button onClick={this.addPicture}>Add</button>
+          <button onClick={() => (this.randoms = shuffle(this.randoms))}>
+            Shuffle
+          </button>
+        </h2>
+
+        <div>
+          <transition-group name="flip" tag="div" class="transition">
+            {this.randoms.map(({ url, uid }) =>
+              renderImage(h, url, getRandomConfig(), uid)
+            )}
+          </transition-group>
+        </div>
         <seperate></seperate>
 
         <h2>Use global config</h2>
@@ -91,16 +107,6 @@ new Vue({
             content: "@serializedowen",
             mode: "bottomright",
           })}
-        </div>
-
-        <h2>
-          Use random config <button onClick={this.addPicture}>Add</button>
-        </h2>
-
-        <div>
-          {this.urls
-            .slice(7)
-            .map((url) => renderImage(h, url, getRandomConfig()))}
         </div>
       </div>
     );
