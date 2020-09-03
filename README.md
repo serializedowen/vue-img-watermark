@@ -19,8 +19,12 @@ yarn add @serializedowen/vue-img-watermark
 import plugin from '@serializedowen/vue-img-watermark'
 
 Vue.use(plugin)
+
 ```
 
+```html
+<img src="xxx" v-watermark />
+```
 
 
 * put `v-watermark` on your `<img>` tag to generate watermark for your image
