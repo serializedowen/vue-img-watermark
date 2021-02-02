@@ -6,7 +6,7 @@ config.mode = "production";
 delete config.devtool;
 
 webpack(config, (...args) => {
-  console.log(args);
+
   ghPages.publish("dist", () => {
     console.info("published");
   });

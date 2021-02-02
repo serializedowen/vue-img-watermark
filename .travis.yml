@@ -1,7 +1,23 @@
 language: node_js
+
 node_js:
   - 12
+
+
+jobs:
+  include:
+    - stage: 'Tests'
+      script: npm run test
+    - stage: build
+      script: npm run build:pages
+    - stage: build
+      script: npm run build
+
+
+
+
 deploy:
+  local_dir: ./dist
   provider: pages
   skip_cleanup: true
   github_token: 42a182d2fb8b32e70a603b055ffcf7a91b4ba23d  # Set in the settings page of your repository, as a secure variable
