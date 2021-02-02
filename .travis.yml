@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - 12
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: 42a182d2fb8b32e70a603b055ffcf7a91b4ba23d  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: gh-pages
