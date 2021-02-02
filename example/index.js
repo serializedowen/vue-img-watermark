@@ -8,6 +8,7 @@ import "./index.css";
 import "prismjs/themes/prism.css";
 import { shuffle } from "lodash";
 import getRandomPic from "./getRandomPic";
+
 import { v4 as uuid } from "uuid";
 Vue.use(plugin);
 
@@ -87,6 +88,15 @@ new Vue({
         <h2>Use global config</h2>
 
         <div>{this.urls.slice(0, 2).map((url) => renderImage(h, url))}</div>
+
+        <div>
+          {this.urls
+            .slice(0, 2)
+            .map((url) =>
+              renderImage(h, "https://cdn.serializedowen.com/parallax.jpg")
+            )}
+        </div>
+
         <h2>Use individual config</h2>
 
         <div>
