@@ -38,6 +38,7 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-typescript": "^7.12.7",
     "@types/prismjs": "^1.16.1",
+    "@vue/babel-preset-jsx": "^1.2.4",
     "awesome-typescript-loader": "^5.2.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-jest": "^26.6.3",
