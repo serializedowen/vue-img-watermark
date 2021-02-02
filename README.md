@@ -1,4 +1,6 @@
-# vue-img-watermark :maple_leaf:
+# vue-img-watermark :maple_leaf:     
+
+[![Build Status](https://travis-ci.com/serializedowen/vue-img-watermark.svg?branch=master)](https://travis-ci.com/serializedowen/vue-img-watermark)
 
 ## Demo 
  http://serializedowen.github.io/vue-img-watermark/
