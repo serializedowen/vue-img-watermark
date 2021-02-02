@@ -9,5 +9,6 @@ webpack(config, (...args) => {
 
   ghPages.publish("dist", () => {
     console.info("published");
+    process.exit(0)
   });
 });

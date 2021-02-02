@@ -6,11 +6,11 @@ node_js:
 
 jobs:
   include:
-    - stage: 'Tests'
+    - stage: Tests
       script: npm run test
-    - stage: build
+    - stage: Build
       script: npm run build:pages
-    - stage: build
+    - stage: Build
       script: npm run build
 
 
